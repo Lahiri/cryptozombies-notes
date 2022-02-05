@@ -1,14 +1,27 @@
-﻿## Pragma
+﻿# Making the Zombie Factory
+1. [Pragma](#pragma)
+2. [State variables](#state-variables)
+3. [Math operations](#math-operations)
+4. [Structs](#structs)
+5. [Arrays](#arrays)
+6. [Functions](#functions)
+7. [Storing data](#storing-data)
+8. [Modifiers](#modifiers)
+9. [Pseudo-random generation](#pseudo-random-generation)
+10. [Typecasting](#typecasting)
+11. [Events](#events)
+
+## Pragma
 
 First, we must always declare the Solidity version:
 
 `pragma solidity >=0.6.0 <0.8.11`
 
-The we declare a contract. Contracts are the core of Solidity.
+Then we declare a contract. Contracts are the core of Solidity.
 
 ```
 contract ZombieFactory {
-
+    // contract logic
 }
 ```
 
@@ -153,6 +166,7 @@ The *kekkak256* function is a hash function that can be used to create pseudo-ra
 ```
 //6e91ec6b618bb462a4a6ee5aa2cb0e9cf30f7a052bb467b0ba58b8748c00d2e5
 keccak256(abi.encodePacked("aaaab"));
+
 //b1f078126895a1424524de5321b339ab00408010b7cf0e6ed451514981e58aa9
 keccak256(abi.encodePacked("aaaac"));
 ```
