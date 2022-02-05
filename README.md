@@ -1,5 +1,5 @@
-# cryptozombies-notes
-Notes for the <a href="https://cryptozombies.io/" target="_blank">Cryptozombies</a> course on Solidity.
+# Cryptozombies notes
+Notes for the [Cryptozombies](https://cryptozombies.io) course on Solidity.
 
 * [Making the Zombie Factory](01%20-%20Making%20the%20Zombie%20Factory.md)
   1. [Pragma](01%20-%20Making%20the%20Zombie%20Factory.md#pragma)
