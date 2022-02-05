@@ -14,8 +14,6 @@ Notes for the [Cryptozombies](https://cryptozombies.io/) course on Solidity.
   10. [Typecasting](01%20-%20Making%20the%20Zombie%20Factory.md#typecasting)
   11. [Events](01%20-%20Making%20the%20Zombie%20Factory.md#events)
 
-</br>
-
 * Zombies Attack Their Victims
 
   TBD
