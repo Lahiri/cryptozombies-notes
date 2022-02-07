@@ -11,6 +11,7 @@
 10. [Typecasting](#typecasting)
 11. [Events](#events)
 
+
 ## Pragma
 
 First, we must always declare the Solidity version:
