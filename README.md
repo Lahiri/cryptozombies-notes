@@ -30,10 +30,10 @@ Notes from the [Cryptozombies](https://cryptozombies.io) course on Solidity.
 
 * Advanced Solidity Concepts
 
-1. [Constructur](03%20-%20Advanced%20Solidity%20Concepts.md#constructur)
-2. [OpenZeppelin](03%20-%20Advanced%20Solidity%20Concepts.md#openzeppelin)
-3. [Time units](03%20-%20Advanced%20Solidity%20Concepts.md#time-units)
-4. [For loop](03%20-%20Advanced%20Solidity%20Concepts.md#for-loop)
+  1. [Constructur](03%20-%20Advanced%20Solidity%20Concepts.md#constructur)
+  2. [OpenZeppelin](03%20-%20Advanced%20Solidity%20Concepts.md#openzeppelin)
+  3. [Time units](03%20-%20Advanced%20Solidity%20Concepts.md#time-units)
+  4. [For loop](03%20-%20Advanced%20Solidity%20Concepts.md#for-loop)
 
 
 * Zombie Battle System
