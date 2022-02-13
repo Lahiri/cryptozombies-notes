@@ -20,7 +20,7 @@ First, we must always declare the Solidity version:
 
 Then we declare a contract. Contracts are the core of Solidity.
 
-```
+``` javascript
 contract ZombieFactory {
     // contract logic
 }
@@ -33,7 +33,7 @@ contract ZombieFactory {
 
 A uint is an unsigned integer, so it can not be negative. The variable can be inititate with or without a value.
 
-```
+``` javascript
 contract ZombieFactory {
     uint dnaDigits = 16;
 }
@@ -54,19 +54,38 @@ contract ZombieFactory {
 
 **Structs** are data types with multiple properties.
 
-```
+``` javascript
 struct Zombie {
     string name;
     uint dna;
 }
 ```
 
+Usually Solidity always uses 256 bits for *uint*s, so it is useless to specify smaller sizes, such as *uint8* or *uint16* (remember that *uint* is an alias for *uint256*).
+
+However, when using *uint*s in structs, it is important to specify the bit size because Solidity can pack the variables together and save storage.
+
+For this reason, inside a struct you'll want to use the smallest integer sub-types you can get away with.
+
+``` javascript
+struct NormalStruct {
+  uint a;
+  uint b;
+  uint c;
+}
+
+struct MiniMe {
+  uint32 a;
+  uint32 b;
+  uint c;
+}
+```
 
 ## Arrays
 
 **Arrays** can be *fixed* or *dynamic*:
 
-```
+``` javascript
 uint[2] fixedArray;
 
 string[5] stringArray;
@@ -76,7 +95,7 @@ uint[] dynamicArray;
 
 This is how you create an array of structs and add itemps with the *push* method:
 
-```
+``` javascript
 contract ZombieFactory {
 
     uint dnaDigits = 16;
@@ -100,7 +119,7 @@ contract ZombieFactory {
 
 **Functions** can take parameters that by convention start with _ (underscore).
 
-```
+``` javascript
 function createZombie(string memory _name, uint _dna) public {
 
 }
@@ -116,7 +135,7 @@ By convention, private functions start with _ (underscore).
 
 Functions can return values and the function declaration must contain the type of it.
 
-```
+``` javascript
 string message = "Hello world";
 
 function printMessage() public returns(string memory) {
@@ -126,7 +145,7 @@ function printMessage() public returns(string memory) {
 
 Variables can be declared as *public* and a **getter** method is automatically created.
 
-```
+``` javascript
 Zombie[] public zombies;
 ```
 
@@ -146,19 +165,81 @@ Local variables of struct, array or mapping type reference storage by default.
 
 Local variables of value type (i.e. neither array, nor struct nor mapping) are stored in the stack
 
+What are inefficient practices in other programming languages can be the best practice in Solidity. For example, it may be more efficient to rebuild an array in memory every time a function is called rather than store the array in memory, because we save the storage cost.
+
+This is how you declare an array in memory"
+
+``` javascript
+function getArray() external pure returns(uint[] memory) {
+  // Instantiate a new array in memory with a length of 3
+  uint[] memory values = new uint[](3);
+
+  // Put some values to it
+  values[0] = 1;
+  values[1] = 2;
+  values[2] = 3;
+
+  return values;
+}
+```
+
+The array will exist only during the function execution.
+
+Note that memory arrays can only be created with a length argument and they cannot be resized like storage arrays can with `array.push()`.
+
 
 ## Modifiers
 
 - *view*: used when the function only reads data from the blockchain. It is cheaper than functions that make changes to the storage.
 - *pure*: used when the function does not read or modify any storage data. It is even cheaper than view.
 
-```
+``` javascript
     function _generateRandomDna(string memory _str) private view returns (uint) {
 
     }
 
 ```
 
+You can define custom modifiers to easily add features to your functions.
+A very common modifier is onlyOwner():
+
+``` javascript
+function isOwner() public view returns(bool) {
+    return msg.sender == _owner;
+}
+
+modifier onlyOwner() {
+    require(isOwner());
+    _;
+}
+```
+
+This makes the modified functions callable only by the contract owner:
+
+``` javascript
+function myFunction() public onlyOwner {
+    // function logic
+}
+```
+
+Modifiers can also take arguments.
+
+``` javascript
+// A mapping to store a user's age:
+mapping (uint => uint) public age;
+
+// Modifier that requires this user to be older than a certain age:
+modifier olderThan(uint _age, uint _userId) {
+  require(age[_userId] >= _age);
+  _;
+}
+
+// Must be older than 16 to drive a car (in the US, at least).
+// We can call the `olderThan` modifier with arguments like so:
+function driveCar(uint _userId) public olderThan(16, _userId) {
+  // Some function logic
+}
+```
 
 ## Pseudo-random generation
 
@@ -177,7 +258,7 @@ keccak256(abi.encodePacked("aaaac"));
 
 **Typecasting** is used when you want to convert between data types:
 
-```
+``` javascript
 uint8 a = 5;
 uint b = 6;
 // throws an error because a * b returns a uint, not uint8:
@@ -195,7 +276,7 @@ uint8 c = a * uint8(b);
 
 Events are declared with the *event* keyword and fired with the *emit* keyword.
 
-```
+``` javascript
 event IntegersAdded(uint x, uint y, uint result);
 
 function add(uint _x, uint _y) public returns (uint) {
