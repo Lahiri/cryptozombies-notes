@@ -1,7 +1,8 @@
 ﻿# Advanced Solidity Concepts
-
-TBD
-
+1. [Constructur](#constructur)
+2. [OpenZeppelin](#openzeppelin)
+3. [Time units](#time-units)
+4. [For loop](#for-loop)
 
 ## Constructur
 
