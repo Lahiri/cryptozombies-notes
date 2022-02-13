@@ -16,7 +16,17 @@ Notes from the [Cryptozombies](https://cryptozombies.io) course on Solidity.
 
 * Zombies Attack Their Victims
 
-  TBD
+1. [Mapping addresses](02%20-%20Zombies%20Attack%20their%20Victims.md#mapping-addresses)
+2. [Global variable: msg.sender](02%20-%20Zombies%20Attack%20their%20Victims.md#global-variable-msgsender)
+3. [Require](02%20-%20Zombies%20Attack%20their%20Victims.md#require)
+4. [Inheritance](02%20-%20Zombies%20Attack%20their%20Victims.md#inheritance)
+5. [Import](02%20-%20Zombies%20Attack%20their%20Victims.md#import)
+6. [Storage and Memory](02%20-%20Zombies%20Attack%20their%20Victims.md#storage-and-memory)
+7. [Interacting with other contracts](02%20-%20Zombies%20Attack%20their%20Victims.md#interacting-with-other-contracts)
+8. [Return values](02%20-%20Zombies%20Attack%20their%20Victims.md#return-values)
+9. [If statement](02%20-%20Zombies%20Attack%20their%20Victims.md#if-statement)
+10. [Javascript implementation](02%20-%20Zombies%20Attack%20their%20Victims.md#javascript-implementation)
+
 
 * Advanced Solidity Concepts
 
